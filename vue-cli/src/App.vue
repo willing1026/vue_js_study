@@ -2,7 +2,9 @@
   <!-- 이 템플릿은 root.  하나의 엘리먼트만 존재 가능 -->
   <!-- 여러개의 div 태그를 병렬로 선언 X -->
   <div>
-    <app-header v-bind:propsdata="str"></app-header>
+    <app-header 
+      v-bind:propsdata="str"
+      v-on:renew="renewStr"></app-header>
   </div>
 </template>
 
@@ -18,6 +20,11 @@ export default {
   },
   components: {
     'app-header': AppHeader
+  },
+  methods: {
+    renewStr: function() {
+      this.str = 'hi';
+    }
   }
 
 }
